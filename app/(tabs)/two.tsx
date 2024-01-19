@@ -200,7 +200,7 @@ export default function TabTwoScreen() {
   }
 
   return (
-    <View style={{backgroundColor:"white", flex:1}}>
+    <View style={{backgroundColor:"white", flex:1, height:"100%"}}>
       <View style={{paddingLeft:10, paddingTop:10}}><Text style={{fontWeight:"bold", fontSize:15}}>{guests?.length} guests in the building</Text></View>
       <View >
         <TextInput
@@ -213,6 +213,7 @@ export default function TabTwoScreen() {
         />
       </View> 
      {guests && guests.length > 0 ? (
+     
           <FlatList
             // numColumns={2}
             data={guests}
@@ -225,49 +226,58 @@ export default function TabTwoScreen() {
               
               // style={{flex:1, width:"100%"}}
               // > 
-              
+              <View style={[styles.card2,styles.elevation, styles.viewWidth]}>
              <View style={{
               justifyContent:"space-between",              
               padding:10, 
               flexDirection:"row",
               backgroundColor:"white",
               marginTop:10,
+             
             
              
               }}>
                 <FontAwesome
-                    name="check"
+                    name="user"
                     size={25}
-                    // color="red"
+                    color="#428CD6"
                     style={{ marginRight: 15 }}
                   />
-              <Text style={{fontWeight:"bold", fontSize:15}}>{item.first_name}</Text>
-              <Text style={{fontWeight:"bold", fontSize:15}}>{item.last_name}</Text>           
+              <Text style={{fontWeight:"bold", fontSize:15, marginRight:10, flex:1}}>{item.first_name}</Text>
+              <Text style={{fontWeight:"bold", fontSize:15, marginRight:10, flex:1}}>{item.last_name}</Text>           
            
 
-<Link style={{backgroundColor:"#566573", justifyContent:"center", 
+<Link style={{backgroundColor:"#566573", 
+              justifyContent:"center", 
               alignContent:"center",
               padding:10,
               borderRadius:5,
-              color:"white"
+              color:"white",
+              flex:1,
+              marginRight:10,
+              textAlignVertical:"center"
+           
+           
+              
               }}
         href={{
           pathname: "/details/Details",
           params: item 
         }}>
-          Details
+          Detail
         </Link>
 
               <TouchableOpacity onPress={()=>signOut(item)}>
               <View style={{backgroundColor:"#2980B9", justifyContent:"center", 
               alignContent:"center",
               padding:10,
-              borderRadius:5
+              borderRadius:5,
+              flex:1
               }}><Text style={{color:"white"}}>Sign Out</Text>
               </View>
               </TouchableOpacity>
              </View>
-            
+            </View>
               //  </Shadow>
             )}          
   
@@ -329,6 +339,7 @@ const styles = StyleSheet.create({
     height: 42,
     borderRadius: 4,
     marginTop: 30,
+   
   },
   buttonText: {
     color: '#fff',
@@ -338,5 +349,33 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
+  },
+  card2: {
+    backgroundColor: 'white',
+    // borderRadius: 5,
+    // paddingVertical: 45,
+    // paddingHorizontal: 25,
+    // paddingLeft:10,
+    // paddingRight:10,
+    paddingBottom:10,    
+    width: "90%",
+    maxWidth:500,
+    marginVertical: 10,
+    borderTopWidth:1,
+    borderTopColor:"#E0E4E8" ,
+    marginRight:10,
+    marginLeft:10 ,
+    alignSelf:"center",
+    flex:1
+  },
+  elevation: {
+    elevation: 5,
+    shadowColor: '#52006A',
+  },
+  viewHeight:{
+    height:"100%"
+  },
+  viewWidth:{
+    // width:"100%"
   }
 });

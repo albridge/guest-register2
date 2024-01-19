@@ -64,7 +64,7 @@ return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12
     </View>
     <View style={{paddingTop:10, paddingEnd:20, paddingStart:20, flexDirection:"row", justifyContent:"space-between", }}>
         <View style={{flex:1}}><Text style={{fontWeight:"bold", fontSize:20}}>Guest Name:</Text></View>
-        <View style={{marginLeft:10,}}>
+        <View style={{marginLeft:10, flex:1}}>
         <Text style={{fontWeight:"bold", fontSize:20}}>{item.first_name+' '+item.last_name}</Text>
         </View>
         </View>
